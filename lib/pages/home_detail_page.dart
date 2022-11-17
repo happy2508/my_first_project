@@ -12,10 +12,12 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: MyThemes.creamColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      backgroundColor: context.theme.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.theme.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -24,10 +26,10 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all(MyThemes.darkBluishColor),
+                      MaterialStateProperty.all(context.theme.buttonColor),
                   shape: MaterialStateProperty.all(StadiumBorder())),
-              child: "Buy".text.make(),
-            ).wh(100, 50)
+              child: "Add to Cart".text.make(),
+            ).wh(120, 50)
           ],
         ).p32(),
       ),
@@ -45,11 +47,11 @@ class HomeDetailPage extends StatelessWidget {
               edge: VxEdge.TOP,
               child: Container(
                   width: context.screenWidth,
-                  color: Colors.white,
+                  color: context.cardColor,
                   child: Column(
                     children: [
                       catalog.name.text.xl4
-                          .color(MyThemes.darkBluishColor)
+                          .color(context.theme.accentColor)
                           .bold
                           .make(),
                       catalog.desc.text
@@ -57,6 +59,11 @@ class HomeDetailPage extends StatelessWidget {
                           .xl
                           .make(),
                       1.heightBox,
+                      "Reload already in progress, ignoring requestReload already in progress, ignoring requestReload already in progress, ignoring requestReload already in progress, ignoring requestReload already in progress, ignoring requestReload already in progress, ignoring request"
+                          .text
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .p12()
                     ],
                   ).py64()),
             ))

@@ -6,8 +6,8 @@ class CatalogHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      "Olx Pro".text.xl5.bold.color(MyThemes.darkBluishColor).make(),
-      "Trending Products".text.xl2.make(),
+      "Olx Pro".text.xl5.bold.color(context.theme.accentColor).make(),
+      "Trending Products".text.color(context.theme.accentColor).xl2.make(),
     ]);
   }
 }
