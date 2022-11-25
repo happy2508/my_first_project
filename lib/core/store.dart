@@ -5,8 +5,8 @@ import 'package:my_first_project/models/cart.dart';
 import 'package:my_first_project/models/catalog.dart';
 
 class MyStore extends VxStore {
-  CatalogModels catalog;
-  CartModel cart;
+  late CatalogModels catalog;
+  late CartModel cart;
 
   MyStore() {
     catalog = CatalogModels();
