@@ -14,6 +14,7 @@ class AddToCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart;
 
     bool isInCart = _cart.items.contains(catalog) ?? false;
@@ -21,11 +22,7 @@ class AddToCart extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         if (!isInCart) {
-          isInCart = isInCart.toggle();
-          final _catalog = CatalogModels();
-
-          _cart.catalog = _catalog;
-          _cart.add(catalog);
+          AddMutation(catalog);
           // setState(() {});
         }
       },
